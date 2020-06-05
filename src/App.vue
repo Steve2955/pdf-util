@@ -1,5 +1,6 @@
 <template>
 	<div id="app" @drop.prevent="dropFiles" @dragover.prevent>
+		<a class="github-fork-ribbon" href="https://github.com/Steve2955/pdf-util" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
 		<section class="hero is-primary is-bold">
 			<div class="hero-body">
 				<div class="container">
@@ -89,5 +90,9 @@ export default {
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #2c3e50;
+}
+
+.github-fork-ribbon:before {
+	background-color: #333 !important;
 }
 </style>

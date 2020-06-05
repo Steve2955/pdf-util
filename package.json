@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "downloadjs": "^1.4.7",
     "file-dialog": "0.0.8",
+    "github-fork-ribbon-css": "^0.2.3",
     "pdf-lib": "^1.7.0",
     "vue": "^2.6.11"
   },
