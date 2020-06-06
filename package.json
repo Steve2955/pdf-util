@@ -14,7 +14,8 @@
     "file-dialog": "0.0.8",
     "github-fork-ribbon-css": "^0.2.3",
     "pdf-lib": "^1.7.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",

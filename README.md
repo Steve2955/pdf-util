@@ -1,10 +1,12 @@
+![Build and Deploy](https://github.com/Steve2955/pdf-util/workflows/Build%20and%20Deploy/badge.svg)
+
 # pdf-util
 
-Merge PDFs directly in your browser without sending them to some server.
+Merge PDFs and more directly in your browser without sending them to some server.
 
 ## Description
 
-I often find myself needing to merge multiple PDFs into one. Unwilling to install some random from the internet, I tend to use some random website to do the merging. All of the services I tested did the merging on their server which is a huge privacy concern in my opinion. That's why I created this project to be able to privately merge PDFs directly in the browser.
+I often find myself needing to merge multiple PDFs into one. Unwilling to install some random from the internet, I tend to use some random website to do the merging. All of the services I tested did the merging on their server which is a huge privacy concern in my opinion. That's why I created this project to be able to privately merge PDFs directly in the browser. The goal of the project is not only to provide a tool for merging PDFs, but also some other useful utilities for handling them.
 
 ## Getting Started
 
