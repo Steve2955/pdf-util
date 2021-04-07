@@ -52,13 +52,15 @@ mergePDF: async function(){
 	this.isLoading = true;
 	const mergePDF = await PDFDocument.create();
 
-	for(let i = 0; i < this.files.length; i++){
-		const appendPDF = await PDFDocument.load(this.files[i].data);
+    // https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
+
+    for await (const file of this.files)
+    {
+        const appendPDF = await PDFDocument.load(file.data);
 		const appendPages = await mergePDF.copyPages(appendPDF, appendPDF.getPageIndices());
-		for(let i = 0; i < appendPages.length; i++){
-			await mergePDF.addPage(appendPages[i]);
-		}
-	}
+
+        appendPages.forEach(appendPage => mergePDF.addPage(appendPage));
+    }
 
 	const mergePDFFile = await mergePDF.save();
 	download(mergePDFFile, "merged.pdf", "application/pdf");
