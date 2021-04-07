@@ -81,15 +81,19 @@ export default {
 			this.isLoading = true;
 			const {xC, yC} = this;
 
+
 			const gridPDF = await PDFDocument.create();
 			const embedPdf = await PDFDocument.load(this.file.data);
 			const embedPages = await gridPDF.embedPdf(embedPdf, embedPdf.getPageIndices());
 
 			for(let i = 0; i < embedPages.length; i += xC + yC){
 				const page = gridPDF.addPage();
-				for(let x = 0; x < xC; x++){
-					for(let y = 0; y < yC; y++){
-						if(x + xC * y > embedPages.length) break;
+				for(let x = 0; x < xC; x++)
+                {
+					for(let y = 0; y < yC; y++)
+                    {
+						if(i + x + xC * y >= embedPages.length - 1) break;
+
 						page.drawPage(embedPages[i + x + xC * y], {
 							x: x * (page.getWidth()/xC),
 							y: page.getHeight()*((yC-1)/yC) - (page.getHeight() / yC * y),
