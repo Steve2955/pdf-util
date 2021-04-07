@@ -5,22 +5,36 @@
                     <img class="mt-5 mb-2" src="@/assets/icons/pdf-box.svg" height="100px" width="100px">
                     <p class="mb-5">Drop PDFs here or click below</p>
                 </div>
-                <div v-else>
+                <draggable
+                    v-else
+                    v-model="files"
+                    handle=".handle"
+                    @start="drag=true"
+                    @end="drag=false"
+                >
                     <div
-                        class="my-2"
+                        class="my-2 px-2 pdf-file-container"
                         v-for="(file, index) in files"
                         :key="index"
                     >
-                        {{file.name}}
-                        <b-icon
-                            type="is-danger"
-                            size="is-small"
-                            icon="delete"
-                            class="pointer"
-                            @click.native="removeFile(index)"
-                        />
+                        <div class="pdf-file-name">
+                            {{file.name}}
+                        </div>
+                        <div class="actions">
+                            <b-icon
+                                icon="drag-horizontal-variant"
+                                class="pointer mx-2 handle"
+                            />
+                            <b-icon
+                                type="is-danger"
+                                size="is-small"
+                                icon="delete"
+                                class="pointer"
+                                @click.native="removeFile(index)"
+                            />
+                        </div>
                     </div>
-                </div>
+                </draggable>
                 <b-button size="is-medium" type="is-primary" @click="addFile" rounded expanded>Add PDFs</b-button>
             </div>
             <b-button size="is-medium" type="is-primary" @click="mergePDF" rounded expanded outlined :loading="isLoading" :disabled="files.length==0">Merge PDFs</b-button>
@@ -31,9 +45,13 @@
 import fileDialog from 'file-dialog';
 import { PDFDocument } from 'pdf-lib';
 import download from 'downloadjs';
+import draggable from 'vuedraggable';
 
 export default {
     name: 'Merge',
+    components: {
+        draggable
+    },
     data()
     {
         return {
@@ -115,6 +133,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .pdf-file-container {
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        grid-template-rows: 1;
+        justify-content: center;
+
+        .pdf-file-name {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+        }
+    }
+
     .pointer {
         cursor: pointer;
     }
