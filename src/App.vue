@@ -1,5 +1,5 @@
 <template>
-	<div id="app" @drop.prevent="dropFiles" @dragover.prevent>
+	<div id="app">
 		<a class="github-fork-ribbon" href="https://github.com/Steve2955/pdf-util" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
 		<section class="hero is-primary is-bold">
 			<div class="hero-body">
