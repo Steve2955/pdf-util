@@ -57,7 +57,7 @@ mergePDF: async function(){
     for await (const file of this.files)
     {
         const appendPDF = await PDFDocument.load(file.data);
-		const appendPages = await mergePDF.copyPages(appendPDF, appendPDF.getPageIndices());
+        const appendPages = await mergePDF.copyPages(appendPDF, appendPDF.getPageIndices());
 
         appendPages.forEach(appendPage => mergePDF.addPage(appendPage));
     }
