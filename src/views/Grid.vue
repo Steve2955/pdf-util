@@ -92,7 +92,7 @@ export default {
                 {
 					for(let y = 0; y < yC; y++)
                     {
-						if(i + x + xC * y >= embedPages.length - 1) break;
+						if(i + x + xC * y > embedPages.length - 1) break;
 
 						page.drawPage(embedPages[i + x + xC * y], {
 							x: x * (page.getWidth()/xC),
